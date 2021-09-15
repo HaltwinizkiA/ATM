@@ -40,7 +40,7 @@ public class Atm {
     }
 
     public Double writeCash() {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter("C:\\Users\\37533\\ATM\\src\\db\\atmCash.txt"))) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("C:\\Users\\37533\\Projects\\ATM\\src\\db\\atmCash.txt"))) {
             bw.write(String.valueOf(cash));
         } catch (Exception e) {
             System.out.println("write cash exception " + e);
@@ -49,7 +49,7 @@ public class Atm {
     }
 
     public Double readCash() {
-        try (BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\37533\\ATM\\src\\db\\atmCash.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\37533\\Projects\\ATM\\src\\db\\atmCash.txt"))) {
             double money = Double.parseDouble(br.readLine());
             return money;
         } catch (Exception e) {
@@ -59,7 +59,7 @@ public class Atm {
     }
 
     public String writeCardList() {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter("C:\\Users\\37533\\ATM\\src\\db\\database.txt"))) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("C:\\Users\\37533\\Projects\\ATM\\src\\db\\database.txt"))) {
             String line = "";
             for (Card card : cardList) {
                 line = line + card.getNumber() + " " + card.getOwnersName() + " " + card.getValidity() + " " + card.getIban() + " " + card.getBalance() + " " + card.getPassword() + card.isStatus() + "\n";
@@ -74,11 +74,12 @@ public class Atm {
 
     public List<Card> getCardList() {
         List<Card> cardList = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\37533\\ATM\\src\\db\\database.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\37533\\Projects\\ATM\\src\\db\\database.txt"))) {
             String line = br.readLine();
             while (line != null) {
                 String[] readline = line.split(" ");
-                cardList.add(new Card(readline[0], readline[1], readline[2], readline[3], Double.parseDouble(readline[4]), Integer.parseInt(readline[5]), Boolean.parseBoolean(readline[6])));
+                cardList.add(new Card(readline[0], readline[1], readline[2], readline[3],
+                        Double.parseDouble(readline[4]), Integer.parseInt(readline[5]), Boolean.parseBoolean(readline[6])));
                 line = br.readLine();
             }
         } catch (Exception e) {

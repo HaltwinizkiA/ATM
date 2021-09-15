@@ -1,6 +1,7 @@
 package runner;
 
 import action.*;
+import facade.Atm;
 import menu.Menu;
 import menu.MenuItem;
 
@@ -37,7 +38,10 @@ public class AtmService {
     }
     public void start(){
        launchMenu(rootMenu);
+       while (true){
        launchMenu(mainMenu);
+
+       }
     }
 
     private void launchMenu(Menu menu){

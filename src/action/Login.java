@@ -20,7 +20,7 @@ public class Login implements IAction {
             }
             if (!Atm.getInstance().checkLockingCard(cardNum)) {
                 System.out.println("card locked");
-                break;
+                new Exit().execute();
             }
             System.out.println("enter password XXXX");
             int password = scanner.nextInt();

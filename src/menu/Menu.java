@@ -1,15 +1,9 @@
 package menu;
 
-import action.Exit;
-import action.Login;
-import api.IAction;
 
-import javax.imageio.plugins.tiff.ExifTIFFTagSet;
-import java.io.Serializable;
 import java.util.List;
 
-
-public class Menu implements Serializable {
+public class Menu  {
     String name;
     List<MenuItem> menuItems;
 

@@ -9,5 +9,6 @@ public class Exit implements IAction {
         Atm.getInstance().writeCardList();
         Atm.getInstance().writeCash();
         System.out.println("BYE");
+        System.exit(0);
     }
 }
