@@ -20,31 +20,32 @@ public class AtmService {
         createMenu();
     }
 
-    private  void  createMenu(){
-     rootMenu.setName("ATM");
-     List<MenuItem> rootItem=new ArrayList<>();
-     rootItem.add(new MenuItem(new Login(),"Login"));
-     rootItem.add(new MenuItem(new Exit(),"Exit"));
-     rootMenu.setMenuItems(rootItem);
+    private void createMenu() {
+        rootMenu.setName("ATM");
+        List<MenuItem> rootItem = new ArrayList<>();
+        rootItem.add(new MenuItem(new Login(), "Login"));
+        rootItem.add(new MenuItem(new Exit(), "Exit"));
+        rootMenu.setMenuItems(rootItem);
 
-     mainMenu.setName("\nMenu:");
-     List<MenuItem> mainItem=new ArrayList<>();
-     mainItem.add(new MenuItem(new BalanceCheck(),"Chek Balance"));
-     mainItem.add(new MenuItem(new Deposit(),"Deposit"));
-     mainItem.add(new MenuItem(new Withdraw(),"Withdraw"));
-     mainItem.add(new MenuItem(new Exit(),"Exit"));
-     mainMenu.setMenuItems(mainItem);
+        mainMenu.setName("\nMenu:");
+        List<MenuItem> mainItem = new ArrayList<>();
+        mainItem.add(new MenuItem(new BalanceCheck(), "Chek Balance"));
+        mainItem.add(new MenuItem(new Deposit(), "Deposit"));
+        mainItem.add(new MenuItem(new Withdraw(), "Withdraw"));
+        mainItem.add(new MenuItem(new Exit(), "Exit"));
+        mainMenu.setMenuItems(mainItem);
 
     }
-    public void start(){
-       launchMenu(rootMenu);
-       while (true){
-       launchMenu(mainMenu);
 
-       }
+    public void start() {
+        launchMenu(rootMenu);
+        while (true) {
+            launchMenu(mainMenu);
+
+        }
     }
 
-    private void launchMenu(Menu menu){
+    private void launchMenu(Menu menu) {
         while (true) {
             printMenu(menu);
             Scanner scanner = new Scanner(System.in);
@@ -58,13 +59,12 @@ public class AtmService {
         }
     }
 
-
-    private void printMenu(Menu menu){
-        int n=0;
-        for (MenuItem item:menu.getMenuItems()){
-            System.out.println(n+" - "+item.getName());
+    private void printMenu(Menu menu) {
+        int n = 0;
+        for (MenuItem item : menu.getMenuItems()) {
+            System.out.println(n + " - " + item.getName());
             n++;
         }
-
     }
+
 }

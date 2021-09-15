@@ -3,7 +3,7 @@ package menu;
 
 import java.util.List;
 
-public class Menu  {
+public class Menu {
     String name;
     List<MenuItem> menuItems;
 
