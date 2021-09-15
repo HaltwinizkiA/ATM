@@ -21,6 +21,5 @@ public class Deposit implements IAction {
             new BalanceCheck().execute();
             break;
         }
-
     }
 }
