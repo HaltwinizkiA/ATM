@@ -36,13 +36,9 @@ public class Login implements IAction {
                 System.out.println(Atm.getInstance().lockCard(cardNum));
                 break;
             }
-
             System.out.println("\n" +
                     "password or name is not correct");
-
             attemptCount++;
-
-
         }
     }
 }
