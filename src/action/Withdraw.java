@@ -13,6 +13,5 @@ public class Withdraw implements IAction {
         double amount = scanner.nextDouble();
         System.out.println(Atm.getInstance().withdraw(amount));
         new BalanceCheck().execute();
-
     }
 }
