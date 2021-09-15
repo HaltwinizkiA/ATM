@@ -9,7 +9,6 @@ public class Navigator {
     }
 
     public void printMenu() {
-
         for (int i = 0; i < this.currentMenu.getMenuItem().size(); i++) {
             System.out.println(i + " - " + this.currentMenu.getNameMenuItem(i));
         }
