@@ -1,23 +1,17 @@
 package menu;
 
+import action.Exit;
+import action.Login;
+import api.IAction;
+
+import javax.imageio.plugins.tiff.ExifTIFFTagSet;
 import java.io.Serializable;
 import java.util.List;
 
+
 public class Menu implements Serializable {
-    private String name;
-    private List<MenuItem> menuItem;
-
-    public Menu(String name, List<MenuItem> menuItem) {
-        this.name = name;
-        this.menuItem = menuItem;
-    }
-
-    public Menu() {
-    }
-
-    public String getNameMenuItem(int i) {
-        return menuItem.get(i).getTitle();
-    }
+    String name;
+    List<MenuItem> menuItems;
 
     public String getName() {
         return name;
@@ -27,11 +21,12 @@ public class Menu implements Serializable {
         this.name = name;
     }
 
-    public List<MenuItem> getMenuItem() {
-        return menuItem;
+    public List<MenuItem> getMenuItems() {
+        return menuItems;
     }
 
-    public void setMenuItem(List<MenuItem> menuItem) {
-        this.menuItem = menuItem;
+    public void setMenuItems(List<MenuItem> menuItems) {
+        this.menuItems = menuItems;
     }
 }
+

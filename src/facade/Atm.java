@@ -110,33 +110,30 @@ public class Atm {
         for (Card card : cardList) {
             if (card.getNumber().equals(cardNum) & card.getPassword() == password) {
                 selectedCard = card;
-                return selectedCard;
+
             }
         }
-        return null;
+        return selectedCard;
     }
 
-    public boolean verification(String cardNum) {
+    public boolean verify(String cardNum) {
         String[] cardNumbers = cardNum.split("-");
         for (String numb : cardNumbers) {
-            if (numb.length() != 4) {
+            if (numb.length() != 4 & Pattern.compile("\\D").matcher(numb).find()) {
                 return false;
             }
-            if (Pattern.compile("\\D").matcher(numb).find()) {
-                return false;
-            }
+
         }
         return true;
     }
 
-    public String lockCard(String cardNum) {
+    public void lockCard(String cardNum) {
         for (Card card : cardList) {
             if (card.getNumber().equals(cardNum)) {
                 card.setStatus(false);
             }
-            return "card is locked";
         }
-        return null;
+
     }
 
     public boolean checkLockingCard(String cardNum) {

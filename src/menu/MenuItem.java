@@ -1,40 +1,14 @@
 package menu;
 
-
 import api.IAction;
 
-import java.io.Serializable;
+public class MenuItem {
+    IAction action;
+    String name;
 
-public class MenuItem implements Serializable {
-    private String title;
-    private Menu nextMenu;
-    private IAction action;
-
-
-    public MenuItem() {
-    }
-
-    public MenuItem(String title, IAction action, Menu nextMenu) {
-        this.title = title;
-        this.nextMenu = nextMenu;
+    public MenuItem(IAction action, String name) {
         this.action = action;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public Menu getNextMenu() {
-        return nextMenu;
-    }
-
-    public void setNextMenu(Menu nextMenu) {
-        this.nextMenu = nextMenu;
-
+        this.name = name;
     }
 
     public IAction getAction() {
@@ -45,10 +19,11 @@ public class MenuItem implements Serializable {
         this.action = action;
     }
 
-    public void doAction() {
-        if (action != null) {
-            action.execute();
-        }
+    public String getName() {
+        return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 }

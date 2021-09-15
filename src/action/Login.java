@@ -14,7 +14,7 @@ public class Login implements IAction {
         while (true) {
             System.out.println("enter card num in the format «ХХХХ-ХХХХ-ХХХХ-ХХХХ»");
             String cardNum = scanner.next();
-            if (!Atm.getInstance().verification(cardNum)) {
+            if (!Atm.getInstance().verify(cardNum)) {
                 System.out.println("wrong card num");
                 continue;
             }
@@ -33,7 +33,8 @@ public class Login implements IAction {
                 break;
             }
             if (attemptCount >= 2) {
-                System.out.println(Atm.getInstance().lockCard(cardNum));
+                Atm.getInstance().lockCard(cardNum);
+                System.out.println("card locked");
                 break;
             }
             System.out.println("\n" +
