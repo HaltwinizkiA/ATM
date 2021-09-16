@@ -1,15 +1,25 @@
-package entity;
+package com.github.haltvianitski.atm.entity;
 
 public class Card {
-    private Double balance;
+    private double balance;
     private String ownersName;
     private String number;
     private String validity;
     private String iban;
     private int password;
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
     private boolean status;
 
-    public Card(String number, String ownersName, String validity, String iban, Double balance, int password, boolean status) {
+    @Override
+    public String toString() {
+        return getNumber() + " " + getOwnersName() + " " + getValidity() + " " + getIban() + " " + getBalance() + " " + getPassword() +" "+ isStatus();
+    }
+
+    public Card(String number, String ownersName, String validity, String iban, double balance, int password, boolean status) {
         this.balance = balance;
         this.ownersName = ownersName;
         this.number = number;
@@ -34,32 +44,16 @@ public class Card {
         return password;
     }
 
-    public void setPassword(int password) {
-        this.password = password;
-    }
-
     public Double getBalance() {
         return balance;
-    }
-
-    public void setBalance(Double balance) {
-        this.balance = balance;
     }
 
     public String getOwnersName() {
         return ownersName;
     }
 
-    public void setOwnersName(String ownersName) {
-        this.ownersName = ownersName;
-    }
-
     public String getNumber() {
         return number;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
     }
 
     public String getValidity() {
