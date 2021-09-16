@@ -16,7 +16,7 @@ public class Card {
 
     @Override
     public String toString() {
-        return getNumber() + " " + getOwnersName() + " " + getValidity() + " " + getIban() + " " + getBalance() + " " + getPassword() +" "+ isStatus();
+        return getNumber() + " " + getOwnersName() + " " + getValidity() + " " + getIban() + " " + getBalance() + " " + getPassword() + " " + isStatus();
     }
 
     public Card(String number, String ownersName, String validity, String iban, double balance, int password, boolean status) {

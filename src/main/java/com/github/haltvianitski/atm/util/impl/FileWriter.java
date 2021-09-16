@@ -1,20 +1,19 @@
-package com.github.haltvianitski.atm.util;
+package com.github.haltvianitski.atm.util.impl;
 
 import com.github.haltvianitski.atm.entity.Card;
 import com.github.haltvianitski.atm.runner.Runner;
-import com.github.haltvianitski.atm.util.impl.Writer;
+import com.github.haltvianitski.atm.util.Writer;
 
 import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.net.URL;
 import java.util.List;
 
-public class DefaultWriter implements Writer {
+public class FileWriter implements Writer {
 
     private final URL cashURL;
     private final URL cardBaseURL;
 
-    public DefaultWriter() {
+    public FileWriter() {
         ClassLoader classLoader = Runner.class.getClassLoader();
         cashURL = classLoader.getResource("atmCash.txt");
         cardBaseURL = classLoader.getResource("cardBase.txt");
@@ -22,7 +21,7 @@ public class DefaultWriter implements Writer {
 
     @Override
     public void writCash(double cash) {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(cashURL.getFile()))) {
+        try (BufferedWriter bw = new BufferedWriter(new java.io.FileWriter(cashURL.getFile()))) {
             bw.write(String.valueOf(cash));
         } catch (Exception e) {
             System.out.println("write cash exception " + e);
@@ -31,7 +30,7 @@ public class DefaultWriter implements Writer {
 
     @Override
     public void writeCardBase(List<Card> cardList) {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(cardBaseURL.getFile()))) {
+        try (BufferedWriter bw = new BufferedWriter(new java.io.FileWriter(cardBaseURL.getFile()))) {
             String line = "";
             for (Card card : cardList) {
                 line = line + card.toString() + "\n";

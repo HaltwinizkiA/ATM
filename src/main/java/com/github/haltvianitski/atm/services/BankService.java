@@ -1,9 +1,8 @@
 package com.github.haltvianitski.atm.services;
 
 import com.github.haltvianitski.atm.entity.Card;
-import com.github.haltvianitski.atm.util.DefaultReader;
-import com.github.haltvianitski.atm.util.DefaultWriter;
-import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
+import com.github.haltvianitski.atm.util.impl.FileReader;
+import com.github.haltvianitski.atm.util.impl.FileWriter;
 
 import java.util.List;
 import java.util.Scanner;
@@ -13,7 +12,7 @@ public class BankService {
     private List<Card> cardList;
 
     public BankService() {
-        DefaultReader reader = new DefaultReader();
+        FileReader reader = new FileReader();
         cardList = reader.readCardBase();
     }
 
@@ -89,12 +88,10 @@ public class BankService {
         for (Card card : cardList) {
             if (card.getNumber() == upCard.getNumber()) {
                 card = upCard;
-                DefaultWriter dw = new DefaultWriter();
+                FileWriter dw = new FileWriter();
                 dw.writeCardBase(cardList);
             }
-
         }
-
     }
 
     public boolean checkLockingCard(String cardNum) {

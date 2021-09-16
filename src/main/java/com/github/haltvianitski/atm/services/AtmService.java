@@ -2,8 +2,8 @@ package com.github.haltvianitski.atm.services;
 
 
 import com.github.haltvianitski.atm.entity.Card;
-import com.github.haltvianitski.atm.util.DefaultReader;
-import com.github.haltvianitski.atm.util.DefaultWriter;
+import com.github.haltvianitski.atm.util.impl.FileReader;
+import com.github.haltvianitski.atm.util.impl.FileWriter;
 
 import java.util.Scanner;
 
@@ -11,18 +11,18 @@ public class AtmService {
 
     private Card card;
     private double cash;
-    private DefaultReader dr;
-    private DefaultWriter dw;
+    private FileReader dr;
+    private FileWriter dw;
     private Scanner scanner;
 
 
     public AtmService(Card card) {
-        dr = new DefaultReader();
+        dr = new FileReader();
         this.cash = dr.readСash();
         this.card = card;
         this.scanner = new Scanner(System.in);
-        this.dr = new DefaultReader();
-        this.dw = new DefaultWriter();
+        this.dr = new FileReader();
+        this.dw = new FileWriter();
     }
 
     public String balanceCheck() {
