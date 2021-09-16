@@ -1,4 +1,4 @@
-package com.github.haltvianitski.atm.builder;
+package com.github.haltvianitski.atm.atm;
 
 import com.github.haltvianitski.atm.entity.Card;
 import com.github.haltvianitski.atm.services.AtmService;
@@ -18,8 +18,7 @@ public class Atm {
 
     public void start() {
         try {
-
-        System.out.println("\nHello\n1-login\n0-exit");
+        System.out.println("Hello\n1-login\n0-exit");
         int select = scanner.nextInt();
         switch (select) {
             case 1:
@@ -28,7 +27,7 @@ public class Atm {
             case 0:
                 break;
             default:
-                start();
+                throw new Exception();
         }}catch (Exception e){
             System.out.println("wrong input");
             start();
