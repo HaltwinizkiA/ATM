@@ -29,9 +29,6 @@ public class Card {
         this.status = status;
     }
 
-    public Card() {
-    }
-
     public boolean isStatus() {
         return status;
     }
@@ -60,15 +57,8 @@ public class Card {
         return validity;
     }
 
-    public void setValidity(String validity) {
-        this.validity = validity;
-    }
-
     public String getIban() {
         return iban;
     }
 
-    public void setIban(String iban) {
-        this.iban = iban;
-    }
 }

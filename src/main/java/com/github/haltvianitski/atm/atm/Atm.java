@@ -18,23 +18,24 @@ public class Atm {
 
     public void start() {
         try {
-        System.out.println("Hello\n1-login\n0-exit");
-        int select = scanner.nextInt();
-        switch (select) {
-            case 1:
-                run();
-                break;
-            case 0:
-                break;
-            default:
-                throw new Exception();
-        }}catch (Exception e){
+            System.out.println("Hello\n1-login\n0-exit");
+            int select = scanner.nextInt();
+            switch (select) {
+                case 1:
+                    login();
+                    break;
+                case 0:
+                    break;
+                default:
+                    throw new Exception();
+            }
+        } catch (Exception e) {
             System.out.println("wrong input");
             start();
         }
     }
 
-    public void run() {
+    public void login() {
         try {
             int select;
             Card card = bankService.login();
@@ -42,29 +43,21 @@ public class Atm {
             while (card != null & works) {
                 atmService = new AtmService(card);
                 System.out.println("\n1-Withdraw\n2-Deposit\n3-Balance check \n0-exit");
-                select = 0;
                 select = scanner.nextInt();
                 switch (select) {
-                    case 1:
-                        System.out.println(atmService.withdraw());
-                        break;
-                    case 2:
-                        System.out.println(atmService.deposit());
-                        break;
-                    case 3:
-                        System.out.println(atmService.balanceCheck());
-                        break;
-                    case 0:
+                    case 1 -> System.out.println(atmService.withdraw());
+                    case 2 -> System.out.println(atmService.deposit());
+                    case 3 -> System.out.println(atmService.balanceCheck());
+                    case 0 -> {
                         System.out.println("bye");
                         works = false;
-                        break;
-                    default:
-                        throw new Exception();
+                    }
+                    default -> throw new Exception();
                 }
             }
         } catch (Exception e) {
             System.out.println("wrong input");
-            run();
+            login();
         }
     }
 }

@@ -33,7 +33,6 @@ public class BankService {
                 System.out.println("Card is locked Bye)");
                 return null;
             }
-
             selectedCard = selectCard(cardNum);
         }
         while (attemptCount < 3) {
@@ -47,7 +46,6 @@ public class BankService {
                 attemptCount++;
                 continue;
             }
-
             if (selectedCard.getPassword() == password) {
                 System.out.println("Hello " + selectedCard.getOwnersName());
                 return selectedCard;
@@ -56,11 +54,11 @@ public class BankService {
         }
         if (attemptCount == 3) {
             lockCard(cardNum);
-            System.out.println("\n" +
-                    "password entry limit exceeded\n" +
-                    "your card is blocked");
+            System.out.println("""
+                    
+                    password entry limit exceeded
+                    your card is blocked""");
         }
-
         System.out.println("\nexceeded the number of attempts\n");
         return null;
     }
@@ -86,8 +84,8 @@ public class BankService {
 
     public void updateCard(Card upCard) {
         for (Card card : cardList) {
-            if (card.getNumber() == upCard.getNumber()) {
-                card = upCard;
+            if (card.getNumber().equals(upCard.getNumber())) {
+                card=upCard;
                 FileWriter dw = new FileWriter();
                 dw.writeCardBase(cardList);
             }
@@ -96,12 +94,11 @@ public class BankService {
 
     public boolean checkLockingCard(String cardNum) {
         for (Card card : cardList) {
-            if (card.getNumber().equals(cardNum)) {
+            if (card.getNumber().equals(cardNum) & !card.isStatus()) {
                 return true;
             }
         }
         return false;
-
     }
 
     public void lockCard(String cardNum) {

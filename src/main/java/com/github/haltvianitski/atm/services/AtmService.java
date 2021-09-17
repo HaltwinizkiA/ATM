@@ -30,7 +30,7 @@ public class AtmService {
     }
 
     public String deposit() {
-        double deposit = 0;
+        double deposit ;
         while (true) {
             System.out.println("enter deposit max 1000000");
             try {
@@ -61,7 +61,7 @@ public class AtmService {
                 System.out.println("wrong amount\ninsufficient funds\n");
             }
             card.setBalance(card.getBalance() - draw);
-            cash = -draw;
+            cash -=draw;
             dw.writCash(cash);
             BankService bank = new BankService();
             bank.updateCard(card);
